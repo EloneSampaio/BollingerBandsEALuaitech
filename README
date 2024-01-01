@@ -1,0 +1,41 @@
+
+-- GetBollingerBandsValues
+
+Objetivo: Extrai os valores das Bandas de Bollinger.
+Parâmetros de Saída: upperBand, lowerBand, e moving_average (passados por referência).
+Ação: Usa a função CopyBuffer para obter os valores da Banda Superior (upperBand), Banda Inferior (lowerBand), e Média Móvel (moving_average) do indicador Bollinger Bands.
+
+
+-- ManageOpenPositions
+
+Objetivo: Gerencia as posições abertas, incluindo a modificação ou fechamento parcial com base nas condições de mercado.
+Parâmetros de Entrada: upperBand, lowerBand, e moving_average.
+Ação: Itera sobre as posições abertas e chama funções específicas para gerenciar posições de compra (ManageBuyPosition) e venda (ManageSellPosition).
+
+
+-- ManageBuyPosition e ManageSellPosition
+
+Objetivo: Gerencia posições específicas de compra e venda, incluindo fechamento parcial e modificação de stop loss.
+Parâmetros de Entrada: Informações da posição (posLots, lotsToClose, moving_average, posStopLoss, etc.).
+Ação: Implementa lógicas específicas para modificar stop loss e fechar parcialmente posições de compra ou venda.
+
+
+-- CheckEntrySignals
+
+Objetivo: Verifica os sinais de entrada com base nas Bandas de Bollinger.
+Parâmetros de Entrada: upperBand, lowerBand, closeValue1, e closeValue2.
+Ação: Decide se deve executar operações de compra ou venda com base nas condições dos sinais de entrada.
+
+
+-- ExecuteSellTrade e ExecuteBuyTrade
+
+Objetivo: Executa operações de venda ou compra com base nos sinais de entrada.
+Parâmetros de Entrada: Informações das Bandas de Bollinger (upperBand ou lowerBand).
+Ação: Calcula stop loss e take profit, e executa a ordem de venda ou compra.
+
+-- PrintInformation
+
+Objetivo: Imprime informações relevantes no console.
+Parâmetros de Entrada: Informações das Bandas de Bollinger, média móvel, e valores de fechamento.
+Ação: Cria uma string informativa com os valores relevantes e a imprime no console usando a função Comment.
+
